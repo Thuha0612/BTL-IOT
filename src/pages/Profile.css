@@ -1,0 +1,57 @@
+/* Toàn bộ container để căn giữa tiêu đề và nội dung */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Chiều cao toàn bộ viewport */
+  }
+  
+  /* Container cho tiêu đề, căn giữa theo chiều ngang và giữ ở trên cùng */
+  .header-container {
+    display: flex;
+    justify-content: center; /* Căn giữa tiêu đề theo chiều ngang */
+    padding: 30px 0; /* Khoảng cách trên và dưới tiêu đề */
+  }
+  
+  /* Tiêu đề nằm ở giữa */
+  .centered-header {
+    margin: 0;
+    font-size: 36px; /* Kích thước font chữ, có thể thay đổi */
+    text-align: center;
+  }
+  
+  /* Container chứa ảnh và thông tin, căn giữa theo cả hai chiều */
+  .profile-container {
+    display: flex;
+    flex: 1; /* Chiếm không gian còn lại sau tiêu đề */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+  }
+  
+  /* Thẻ chứa ảnh và thông tin */
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    text-align: center;
+  }
+  
+  /* Ảnh hình tròn */
+  .profile-image {
+    width: 200px; /* Hoặc kích thước mong muốn */
+    height: 200px; /* Hoặc kích thước mong muốn */
+    border-radius: 50%; /* Để ảnh thành hình tròn */
+    margin-bottom: 16px; /* Khoảng cách giữa ảnh và thông tin */
+  }
+  
+  /* Thông tin cá nhân */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-name, .profile-id {
+    margin: 4px 0; /* Khoảng cách giữa các thông tin */
+  }
+  

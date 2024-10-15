@@ -1,0 +1,248 @@
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+}
+
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.control {
+    /* width: 25%;*/  /*no wind */
+    width: 20%; /* wind*/
+    height: 130px; /* Height is twice the width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row; /* Elements in a row */
+    color: white;
+    font-weight: bold;
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+}
+
+.control i {
+    font-size: 24px; /* Icon size */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.control-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control-label, .control-value {
+    margin: 0; /* Remove default margin from <p> */
+}
+
+/* Common icon size class */
+.icon-size {
+    font-size: 48px; /* Set the desired size for all icons */
+}
+
+.bottom-controls {
+    display: flex;
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+}
+
+.chart-container {
+    flex: 2; /* Takes 2/3 of the bottom section */
+    background-color: #f0f0f0;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    height: 100%; /* Full height of the container */
+    width: 100%; /* Ensure chart takes full width */
+    justify-content: center;
+}
+
+
+.device-controls {
+    flex: 1; /* Takes 1/3 of the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.device-control {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.device-control:first-child {
+    margin-top: 20px;
+}
+
+.device-control:last-child {
+    margin-bottom: 20px;
+}
+
+.device-control.active {
+    background-color: #d3ffd3;
+    border-color: #4caf50; /* Fixed missing value */
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increase space between icon and text */
+}
+
+.fan-icon {
+    /* Specific styles for fan icon, if needed */
+}
+
+.fan-on {
+    animation: spin 2s linear infinite;
+}
+
+.light-on {
+    color: #ffeb3b; /* Bright yellow for light when on */
+}
+
+.light-off {
+    color: #000; /* Black for light when off */
+}
+
+.ac-on {
+    color: #00bcd4; /* Bright blue for AC when on */
+}
+
+.ac-off {
+    color: #000; /* Black for AC when off */
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.buttons button {
+    padding: 5px 10px;
+}
+
+/* Keyframes for fan animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.btn-toggle {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    /* Màu chữ là trắng */
+    cursor: pointer;
+    border-radius: 5px;
+    /* Thêm bo góc cho nút */
+    transition: background-color 0.3s ease;
+    /* Hiệu ứng chuyển màu mượt mà */
+}
+
+.btn-toggle.loading {
+    background-color: gray;
+    /* Màu nền khi đang tải */
+}
+
+.btn-toggle:disabled {
+    background-color: lightgray;
+    /* Màu nền khi nút bị vô hiệu hóa */
+    cursor: not-allowed;
+    /* Chỉ báo không thể nhấn */
+}
+
+.device-control.active .btn-toggle {
+    background-color: red;
+    /* Nút On có màu xanh */
+}
+
+.device-control:not(.active) .btn-toggle {
+    background-color: green;
+    /* Nút Off có màu đỏ */
+}
+
+.chart-selector {
+    position: absolute;
+    top: 10px;
+    /* Adjust as needed */
+    right: 10px;
+    /* Adjust as needed */
+    background-color: #f0f0f0;
+    /* Optional: background for better visibility */
+    padding: 5px;
+    /* Optional: padding for aesthetics */
+    border-radius: 5px;
+    /* Optional: rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow for depth */
+    z-index: 10;
+    /* Ensure it appears above other elements */
+}
+
+.chart-selector label {
+    margin-right: 5px;
+    /* Spacing between label and select */
+}
+.chart-container {
+    position: relative;
+    /* Enable positioning context for absolute children */
+}
+.alert-box {
+    justify-content: center;
+    padding: 10px;
+    background-color: #ffcccc;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    opacity: 0;
+    /* Ẩn ô khi không có cảnh báo */
+    transition: opacity 0.5s ease;
+    /* Hiệu ứng chuyển tiếp */
+}
+
+.alert-box.active {
+    opacity: 1;
+    /* Hiển thị ô khi có cảnh báo */
+}
+
+.alert-box i {
+    margin-right: 10px;
+    font-size: 24px;
+    /* Kích thước biểu tượng chuông */
+}
+
+.alert-box i.ring {
+    animation: pulse 1s infinite;
+    /* Hiệu ứng nhấp nháy cho chuông */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+        /* Tăng kích thước chuông */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Quay lại kích thước ban đầu */
+    }
+}
